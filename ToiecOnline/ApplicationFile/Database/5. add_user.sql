@@ -1,0 +1,2 @@
+INSERT INTO toieconline.user (name, password, fullname, createddate, roleid) VALUES ('admin', '1', 'admin', '2021-06-21 21:10:12', 1)
+    INSERT INTO toieconline.user (name, password, fullname, createddate, roleid) VALUES ('baobeta', '1', 'Lê Quốc Bảo', '2021-06-21 20:10:59', 2)

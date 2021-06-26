@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="toiec-core-wed" />
+        <module name="toiec-web" />
+        <module name="toeic-core-common" />
+        <module name="toiec-core-web" />
+        <module name="toiec-core-utils" />
+        <module name="toiec-core-dao" />
+        <module name="toiec-core-data" />
+        <module name="toiec-core-test" />
+        <module name="toiec-core-service" />
+        <module name="toiec-core-service-impl" />
+        <module name="toiec-core-dto" />
+        <module name="toiec-web-logic" />
+        <module name="toiec-core-persistence-data" />
+        <module name="toiec-core-dao-impl" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="toeic-core-common" target="1.8" />
+      <module name="toiec-core-dao" target="1.8" />
+      <module name="toiec-core-dao-impl" target="1.8" />
+      <module name="toiec-core-data" target="1.8" />
+      <module name="toiec-core-dto" target="1.8" />
+      <module name="toiec-core-persistence-data" target="1.8" />
+      <module name="toiec-core-service" target="1.8" />
+      <module name="toiec-core-service-impl" target="1.8" />
+      <module name="toiec-core-test" target="1.8" />
+      <module name="toiec-core-utils" target="1.8" />
+      <module name="toiec-core-web" target="8" />
+      <module name="toiec-core-wed" target="1.8" />
+      <module name="toiec-web" target="1.8" />
+      <module name="toiec-web-logic" target="1.8" />
+      <module name="ToiecOnline" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

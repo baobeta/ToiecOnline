@@ -1,0 +1,3 @@
+com\example\toiec\core\common\utils\HibernateUtil.class
+com\example\toiec\core\common\constant\CoreConstant.class
+com\example\toiec\core\common\utils\UploadUtil.class

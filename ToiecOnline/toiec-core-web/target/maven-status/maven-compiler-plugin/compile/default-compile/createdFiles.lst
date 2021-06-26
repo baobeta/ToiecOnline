@@ -1,0 +1,4 @@
+com\example\core\wed\common\WebConstant.class
+com\example\core\wed\utils\FormUtil.class
+com\example\core\wed\utils\RequestUtil.class
+com\example\core\wed\command\AbstractCommand.class

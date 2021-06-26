@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ToiecOnline.iml" filepath="$PROJECT_DIR$/ToiecOnline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-common/toeic-core-common.iml" filepath="$PROJECT_DIR$/toeic-core-common/toeic-core-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-dao/toiec-core-dao.iml" filepath="$PROJECT_DIR$/toiec-core-dao/toiec-core-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-dao-impl/toiec-core-dao-impl.iml" filepath="$PROJECT_DIR$/toiec-core-dao-impl/toiec-core-dao-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-data/toiec-core-data.iml" filepath="$PROJECT_DIR$/toiec-core-data/toiec-core-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-dto/toiec-core-dto.iml" filepath="$PROJECT_DIR$/toiec-core-dto/toiec-core-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-persistence-data/toiec-core-persistence-data.iml" filepath="$PROJECT_DIR$/toiec-core-persistence-data/toiec-core-persistence-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-service/toiec-core-service.iml" filepath="$PROJECT_DIR$/toiec-core-service/toiec-core-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-service-impl/toiec-core-service-impl.iml" filepath="$PROJECT_DIR$/toiec-core-service-impl/toiec-core-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-test/toiec-core-test.iml" filepath="$PROJECT_DIR$/toiec-core-test/toiec-core-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-utils/toiec-core-utils.iml" filepath="$PROJECT_DIR$/toiec-core-utils/toiec-core-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-web/toiec-core-web.iml" filepath="$PROJECT_DIR$/toiec-core-web/toiec-core-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-core-wed/toiec-core-wed.iml" filepath="$PROJECT_DIR$/toiec-core-wed/toiec-core-wed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-web/toiec-web.iml" filepath="$PROJECT_DIR$/toiec-web/toiec-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toiec-web-logic/toiec-web-logic.iml" filepath="$PROJECT_DIR$/toiec-web-logic/toiec-web-logic.iml" />
+    </modules>
+  </component>
+</project>
