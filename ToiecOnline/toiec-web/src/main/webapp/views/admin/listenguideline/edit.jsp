@@ -146,13 +146,21 @@
                         </div>--%>
                         <%--Jquery change() method--%>
                         <%--<input type="checkbox" id="sex" onchange="changeValueCheckbox()"/>--%>
-                        <input type="checkbox" id="sex"/>
-                        <p id="textSex"></p>
+<%--                        <input type="checkbox" id="sex"/>--%>
+<%--                        <p id="textSex"></p>--%>
 
-                    <p>Hellooo</p>
-                    <p>Hellllo111</p>
+<%--                    <p>Hellooo</p>--%>
+<%--                    <p>Hellllo111</p>--%>
 
-                    <button> click </button>
+<%--                    <button> click </button>--%>
+                        <div style="width:500px;">div (great-grandparent)
+                            <ul>ul (grandparent)
+                                <li>li (direct parent)
+                                    <span>span</span>
+                                </li>
+                            </ul>
+                        </div>
+
                 </div>
             </div>
         </div>
@@ -162,6 +170,7 @@
     $(document).ready(function () {
         hideAllWhenClickButton();
         changeValueCheckbox();
+        testParent();
     });
     function hideAllWhenClickButton() {
         $("#btnHide").click(function () {
@@ -175,19 +184,23 @@
     function demoCssMethod() {
         $('#demoCssMethod1').css("color", "blue");
     }
+
+    function testParent() {
+        $("span").parents("ul").css({"color": "red", "border": "2px solid red"});
+    }
     function changeValueCheckbox() {
         /*if ($('#sex').prop('checked') == true) {
             $('#textSex').html('<h1>Male</h1>');
         } else {
             $('#textSex').html('<h1>Female</h1>');
         }*/
-        $('#sex').on('change', function () {
-            if ($('#sex').prop('checked') == true) {
-                $('#textSex').html('<h1>Male</h1>');
-            } else {
-                $('#textSex').html('<h1>Female</h1>');
-            }
-        });
+        // $('#sex').on('change', function () {
+        //     if ($('#sex').prop('checked') == true) {
+        //         $('#textSex').html('<h1>Male</h1>');
+        //     } else {
+        //         $('#textSex').html('<h1>Female</h1>');
+        //     }
+        // });
     }
 </script>
 </body>

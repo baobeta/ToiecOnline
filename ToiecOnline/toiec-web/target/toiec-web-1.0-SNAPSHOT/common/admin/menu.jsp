@@ -3,6 +3,7 @@
 <c:url value="/admin-guideline-listen-list.html" var="listenGuilineListUrl">
     <c:param name="urlType" value="url_list"/>
 </c:url>
+<c:url value="/admin-test-jquery.html" var="testJquery"/>
 <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
     <script type="text/javascript">
         try{ace.settings.loadState('sidebar')}catch(e){}
@@ -49,6 +50,27 @@
                     <a href="${listenGuilineListUrl}">
                         <i class="menu-icon fa fa-caret-right"></i>
                         <fmt:message key="label.guiline.listen" bundle="${lang}"/>
+
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav nav-list">
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text"></span>
+                <fmt:message key="label.Jquery.Tutorial" bundle="${lang}"/>
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li class="">
+                    <a href="${testJquery}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        <fmt:message key="label.Parent" bundle="${lang}"/>
 
                     </a>
                     <b class="arrow"></b>
