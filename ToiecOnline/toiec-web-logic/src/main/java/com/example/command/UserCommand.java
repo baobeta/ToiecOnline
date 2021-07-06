@@ -7,17 +7,14 @@ import com.example.core.wed.command.AbstractCommand;
 import java.util.List;
 
 public class UserCommand extends AbstractCommand<UserDTO> {
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
+
     public UserCommand() {
         this.pojo = new UserDTO();
     }
+
     private String confirmPassword;
-    private List<RoleDTO> roles ;
+    private List<RoleDTO> roles;
+    private Integer roleId;
 
 
     public List<RoleDTO> getRoles() {
@@ -26,5 +23,21 @@ public class UserCommand extends AbstractCommand<UserDTO> {
 
     public void setRoles(List<RoleDTO> roles) {
         this.roles = roles;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }
