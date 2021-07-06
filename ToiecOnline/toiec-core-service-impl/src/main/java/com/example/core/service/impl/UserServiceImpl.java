@@ -2,6 +2,7 @@ package com.example.core.service.impl;
 
 import com.example.core.dao.UserDao;
 import com.example.core.daoimpl.UserDaoImpl;
+import com.example.core.dto.CheckLogin;
 import com.example.core.dto.UserDTO;
 import com.example.core.persistence.entity.UserEntity;
 import com.example.core.service.UserService;
@@ -14,15 +15,16 @@ import java.util.List;
 import java.util.Map;
 
 public class UserServiceImpl implements UserService {
-    public UserDTO isUserExist(UserDTO dto) {
-        UserEntity entity = SingletonDaoUtil.getUserDaoInstance().findUserByUsernameAndPassword(dto.getName(), dto.getPassword());
-        return UserBeanUtils.entity2Dto(entity);
+//    public UserDTO isUserExist(UserDTO dto) {
+//        UserEntity entity = SingletonDaoUtil.getUserDaoInstance().findUserByUsernameAndPassword(dto.getName(), dto.getPassword());
+//        return UserBeanUtils.entity2Dto(entity);
+//
+//    }
+//    public UserDTO findRoleByUser(UserDTO dto) {
+//        UserEntity entity = SingletonDaoUtil.getUserDaoInstance().findUserByUsernameAndPassword(dto.getName(), dto.getPassword());
+//        return UserBeanUtils.entity2Dto(entity);
+//    }
 
-    }
-    public UserDTO findRoleByUser(UserDTO dto) {
-        UserEntity entity = SingletonDaoUtil.getUserDaoInstance().findUserByUsernameAndPassword(dto.getName(), dto.getPassword());
-        return UserBeanUtils.entity2Dto(entity);
-    }
 
 
     public Object[] findByProperty(Map<String, Object> property, String sortExpression, String sortDirection, Integer offset, Integer limit) {
@@ -58,5 +60,19 @@ public class UserServiceImpl implements UserService {
         entity = SingletonDaoUtil.getUserDaoInstance().update(entity);
         userDTO = UserBeanUtils.entity2Dto(entity);
         return userDTO;
+    }
+
+    @Override
+    public CheckLogin checkLogin(String username, String password) {
+        CheckLogin checkLogin = new CheckLogin();
+        if(username !=null && password != null) {
+            Object[] objects =SingletonDaoUtil.getUserDaoInstance().checkLogin(username, password);
+            checkLogin.setUserExist( (Boolean) objects[0]);
+            if (checkLogin.isUserExist()) {
+                checkLogin.setRoleName(objects[1].toString());
+            }
+        }
+
+        return checkLogin ;
     }
 }

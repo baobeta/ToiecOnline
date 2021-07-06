@@ -14,26 +14,53 @@ import javax.persistence.Query;
 
 public class UserDaoImpl extends AbstractDao<Integer, UserEntity> implements UserDao {
     @Override
-    public UserEntity findUserByUsernameAndPassword(String name, String password) {
-        UserEntity entity = new UserEntity();
-        Session session = HibernateUtil.getSessionFactory().openSession();
+    public Object[] checkLogin(String username, String password) {
+        Session session =HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
+        boolean isUserExist = false;
+        String roleName = null;
         try {
-            StringBuilder sql = new StringBuilder("FROM UserEntity WHERE name= :name AND password =:password ");
-            Query query =session.createQuery(sql.toString());
-            query.setParameter("name",name);
+            StringBuilder sql = new StringBuilder("FROM UserEntity ue WHERE ue.name= :name AND ue.password= :password ");
+            Query query = session.createQuery(sql.toString());
+            query.setParameter("name",username);
             query.setParameter("password",password);
-            entity = (UserEntity) query.getSingleResult();
-            transaction.commit();
-        } catch (HibernateException e) {
+            if(query.getResultList().size()>0) {
+                isUserExist = true;
+                UserEntity userEntity = (UserEntity) query.getSingleResult();
+                roleName = userEntity.getRoleEntity().getName();
+            }
+        } catch (HibernateException e)
+        {
             transaction.rollback();
             throw e;
-
-        } finally {
-            session.close();
-
         }
-        return entity;
+        finally {
+            session.close();
+        }
 
+        return new Object[] {isUserExist, roleName};
     }
+//    @Override
+//    public UserEntity findUserByUsernameAndPassword(String name, String password) {
+//        UserEntity entity = new UserEntity();
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        Transaction transaction = session.beginTransaction();
+//        try {
+//            StringBuilder sql = new StringBuilder("FROM UserEntity WHERE name= :name AND password =:password ");
+//            Query query =session.createQuery(sql.toString());
+//            query.setParameter("name",name);
+//            query.setParameter("password",password);
+//            entity = (UserEntity) query.getSingleResult();
+//            transaction.commit();
+//        } catch (HibernateException e) {
+//            transaction.rollback();
+//            throw e;
+//
+//        } finally {
+//            session.close();
+//
+//        }
+//        return entity;
+//
+//    }
 }

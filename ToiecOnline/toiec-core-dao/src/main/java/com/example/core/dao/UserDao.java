@@ -5,5 +5,6 @@ import com.example.core.persistence.entity.RoleEntity;
 import com.example.core.persistence.entity.UserEntity;
 
 public interface UserDao  extends GenericDao<Integer, UserEntity> {
-    UserEntity findUserByUsernameAndPassword(String name , String password);
+//    UserEntity findUserByUsernameAndPassword(String name , String password);
+    Object[] checkLogin(String username, String password) ;
 }
