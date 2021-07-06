@@ -7,6 +7,7 @@ import com.example.core.service.UserService;
 import com.example.core.service.impl.UserServiceImpl;
 import com.example.core.wed.common.WebConstant;
 import com.example.core.wed.utils.FormUtil;
+import com.example.core.wed.utils.SingletonServiceUtil;
 
 import javax.persistence.NoResultException;
 import javax.servlet.RequestDispatcher;
@@ -26,23 +27,18 @@ public class LoginController extends HttpServlet {
                          HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/web/login.jsp");
         requestDispatcher.forward(request,response);
-
-
     }
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
-
-
        UserCommand command = FormUtil.populate(UserCommand.class,request);
        UserDTO pojo = command.getPojo();
-        UserService userService = new UserServiceImpl();
         try {
-            if(userService.isUserExist(pojo)!=null) {
-                if(userService.findRoleByUser(pojo).getRoleDTO()!=null) {
-                    if(userService.findRoleByUser(pojo).getRoleDTO().getName().equals(WebConstant.ROLE_ADMIN)) {
+            if(SingletonServiceUtil.getUserServiceInstance().isUserExist(pojo)!=null) {
+                if(SingletonServiceUtil.getUserServiceInstance().findRoleByUser(pojo).getRoleDTO()!=null) {
+                    if(SingletonServiceUtil.getUserServiceInstance().findRoleByUser(pojo).getRoleDTO().getName().equals(WebConstant.ROLE_ADMIN)) {
                         response.sendRedirect("/toiec_web_war_exploded/admin-home.html");
-                    } else if((userService.findRoleByUser(pojo).getRoleDTO().getName().equals(WebConstant.ROLE_USER))) {
+                    } else if((SingletonServiceUtil.getUserServiceInstance().findRoleByUser(pojo).getRoleDTO().getName().equals(WebConstant.ROLE_USER))) {
                         response.sendRedirect("/toiec_web_war_exploded/home.html");
                     }
                 }

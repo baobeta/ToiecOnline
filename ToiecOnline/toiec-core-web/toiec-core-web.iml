@@ -23,6 +23,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="toiec-core-service-impl" />
+    <orderEntry type="module" module-name="toiec-core-service" />
+    <orderEntry type="module" module-name="toiec-core-persistence-data" />
+    <orderEntry type="module" module-name="toiec-core-dto" />
+    <orderEntry type="module" module-name="toiec-core-dao" />
+    <orderEntry type="module" module-name="toiec-core-data" />
+    <orderEntry type="module" module-name="toeic-core-common" />
+    <orderEntry type="module" module-name="toiec-core-dao-impl" />
+    <orderEntry type="module" module-name="toiec-core-utils" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.3" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.23" level="project" />
