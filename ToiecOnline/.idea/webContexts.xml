@@ -10,6 +10,7 @@
         <entry key="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/listenguideline/edit.jsp" value="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/listenguideline" />
         <entry key="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/listenguideline/list.jsp" value="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/listenguideline" />
         <entry key="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/user/edit.jsp" value="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/user" />
+        <entry key="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/user/importuser.jsp" value="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/user" />
         <entry key="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/user/list.jsp" value="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/admin/user" />
         <entry key="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/web/login.jsp" value="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/web" />
         <entry key="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/web/web.jsp" value="file://$PROJECT_DIR$/toiec-web/src/main/webapp/views/web" />
