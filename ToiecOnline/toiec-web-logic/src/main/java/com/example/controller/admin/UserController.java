@@ -14,7 +14,9 @@ import com.example.core.wed.utils.FormUtil;
 import com.example.core.wed.utils.SingletonServiceUtil;
 import com.example.core.wed.utils.WebCommonUtil;
 import com.example.toiec.core.common.utils.ExcelPoiUtil;
+import com.example.toiec.core.common.utils.SessionUtil;
 import com.example.toiec.core.common.utils.UploadUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -27,6 +29,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -39,6 +42,10 @@ public class UserController extends HttpServlet {
     private final Logger log = Logger.getLogger(this.getClass().getName());
     private final String SHOW_IMPORT_USER ="show_import_user";
     private final String READ_EXCEL ="read_excel";
+    private final String VALIDATE_IMPORTER ="validate_import";
+    private final String LIST_USER_IMPORT="list_user_import";
+    private final String IMPORT_DATA ="import_data";
+    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("ApplicationResources");
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         UserCommand command = FormUtil.populate(UserCommand.class,request);
@@ -68,13 +75,21 @@ public class UserController extends HttpServlet {
         } else if (command.getUrlType()!= null && command.getUrlType().equals(SHOW_IMPORT_USER)) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/admin/user/importuser.jsp");
             requestDispatcher.forward(request,response);
+        } else if(command.getUrlType()!= null && command.getUrlType().equals(VALIDATE_IMPORTER)) {
+            List<UserImportDTO> userImportDTO = (List<UserImportDTO>) SessionUtil.getInstance().getValue(request,LIST_USER_IMPORT);
+            command.setMaxPageItems(3);
+            command.setTotalItems(userImportDTO.size());
+            command.setUserImportDTOs(userImportDTO);
+            request.setAttribute(WebConstant.LIST_ITEM,command);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/admin/user/importuser.jsp");
+            requestDispatcher.forward(request,response);
+
         }
-
-
 
     }
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
         UploadUtil uploadUtil = new UploadUtil();
         Set<String> value = new HashSet<String>();
         value.add("urlType");
@@ -100,6 +115,8 @@ public class UserController extends HttpServlet {
                     }
 
                 }
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/admin/user/edit.jsp");
+                requestDispatcher.forward(request,response);
             }
             if(objects != null) {
                 String urlType =null;
@@ -113,7 +130,17 @@ public class UserController extends HttpServlet {
                     String fileLocation = objects[1].toString();
                     String fileName = objects[2].toString();
                     List<UserImportDTO> excelValues = returnValueFromExcel(fileName,fileLocation);
+                    validateData(excelValues);
+                    SessionUtil.getInstance().putValue(request,LIST_USER_IMPORT,excelValues);
+                    response.sendRedirect("admin-user-import-validate.html?urlType=validate_import");
                 }
+
+            }
+            if(command.getUrlType()!= null && command.getUrlType().equals(IMPORT_DATA)) {
+                List<UserImportDTO> userImportDTO = (List<UserImportDTO>) SessionUtil.getInstance().getValue(request,LIST_USER_IMPORT);
+                SingletonServiceUtil.getUserServiceInstance().saveUserImport(userImportDTO);
+                SessionUtil.getInstance().remove(request,LIST_USER_IMPORT);
+                response.sendRedirect("admin-user-list.html?urlType=url_list");
 
             }
 
@@ -122,36 +149,71 @@ public class UserController extends HttpServlet {
             request.setAttribute(WebConstant.MESSAGE_RESPONSE,WebConstant.REDIRECT_ERROR);
         }
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/admin/user/edit.jsp");
-        requestDispatcher.forward(request,response);
+    }
 
+    private void validateData(List<UserImportDTO> excelValues) {
+        Set<String> stringSet = new HashSet<>();
+        for(UserImportDTO item :excelValues) {
+            validateRequireFiled(item);
+            validateDuplicate(item,stringSet);
+        }
+        SingletonServiceUtil.getUserServiceInstance().validateImportUser(excelValues);
+    }
 
+    private void validateDuplicate(UserImportDTO item, Set<String> stringSet) {
+        String messages = item.getError();
+        if(!stringSet.contains(item.getUserName())) {
+            stringSet.add(item.getUserName());
+        } else {
+            if(item.isValid())
+            {
+                messages+="<br/>";
+                messages+=resourceBundle.getString("label.username.duplicate");
+            }
+        }
+        if(StringUtils.isNotBlank(messages)) {
+            item.setValid(false);
+            item.setError(messages);
+        }
 
     }
 
-    private List<UserImportDTO> returnValueFromExcel(String fileName, String fileLocation) {
-        Workbook workbook = null;
-        List<UserImportDTO> excelValues =  new ArrayList<UserImportDTO>();
-        try {
-            workbook = ExcelPoiUtil.getWorkbook(fileName,fileLocation);
-            Sheet sheet = workbook.getSheetAt(0);
-            for( int i =1; i<=sheet.getLastRowNum();i++) {
-                Row row = sheet.getRow(i);
-                //System.out.println(row.getCell(0)+"__" +row.getCell(1));
-                UserImportDTO userImportDTO = readDataFromExcel(row);
-                excelValues.add(userImportDTO);
+    private void validateRequireFiled(UserImportDTO item) {
+        String messages = "";
+        if(StringUtils.isBlank(item.getUserName()))
+        {
+            messages+="<br/>";
+            messages+=resourceBundle.getString("label.username.notempty");
+        }
+        if(StringUtils.isBlank(item.getPassword())) {
+            messages+="<br/>";
+            messages+=resourceBundle.getString("label.password.notempty");
+        }
+        if(StringUtils.isBlank(item.getRoleName())) {
+            messages+="<br/>";
+            messages+=resourceBundle.getString("label.rolename.notempty");
+        }
+        if(StringUtils.isNotBlank(messages)) {
+            item.setValid(false);
+        }
+        item.setError(messages);
+    }
 
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    private List<UserImportDTO> returnValueFromExcel(String fileName, String fileLocation) throws IOException{
+        Workbook workbook = ExcelPoiUtil.getWorkBook(fileName, fileLocation);
+        Sheet sheet = workbook.getSheetAt(0);
+        List<UserImportDTO> excelValues = new ArrayList<UserImportDTO>();
+        for (int i=1; i <= sheet.getLastRowNum(); i++) {
+            Row row = sheet.getRow(i);
+            UserImportDTO userImportDTO = readDataFromExcel(row);
+            excelValues.add(userImportDTO);
         }
         return excelValues;
-
     }
 
     private UserImportDTO readDataFromExcel(Row row) {
             UserImportDTO userImportDTO = new UserImportDTO();
-            userImportDTO.setUsername(ExcelPoiUtil.getCellValue(row.getCell(0)));
+            userImportDTO.setUserName(ExcelPoiUtil.getCellValue(row.getCell(0)));
             userImportDTO.setPassword(ExcelPoiUtil.getCellValue(row.getCell(1)));
             userImportDTO.setFullName(ExcelPoiUtil.getCellValue(row.getCell(2)));
             userImportDTO.setRoleName(ExcelPoiUtil.getCellValue(row.getCell(3)));

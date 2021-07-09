@@ -7,7 +7,7 @@
 <c:url var="editUserUrl" value="/ajax-admin-user-edit.html">
     <c:param name="urlType" value="url_edit"/>
 </c:url>
-<c:url var="importUrl" value="/admin-user-import-list.html">
+<c:url var="importUrl" value="/admin-user-import.html">
     <c:param name="urlType" value="show_import_user"/>
 </c:url>
 <html>

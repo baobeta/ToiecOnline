@@ -3,16 +3,31 @@ package com.example.core.dto;
 import java.io.Serializable;
 
 public class UserImportDTO implements Serializable {
-    private  String username;
+    private  String userName;
     private  String password;
+    private  String fullName;
+    private  String roleName;
+    private  boolean valid = true;
 
-    public String getUsername() {
-        return username;
+    public boolean isValid() {
+        return valid;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setValid(boolean valid) {
+        this.valid = valid;
     }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    private String error;
+
+
 
     public String getPassword() {
         return password;
@@ -38,7 +53,12 @@ public class UserImportDTO implements Serializable {
         this.roleName = roleName;
     }
 
-    private  String fullName;
-    private  String roleName;
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }

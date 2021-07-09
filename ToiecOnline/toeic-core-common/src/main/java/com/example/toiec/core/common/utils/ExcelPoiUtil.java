@@ -12,46 +12,43 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExcelPoiUtil {
-    public static Workbook getWorkbook(String fileName, String fileLocation) throws IOException {
-      FileInputStream excelFile = new FileInputStream(new File(fileLocation));
-      Workbook workbook = null;
-      if(fileName.endsWith("xls")) {
-          workbook = new HSSFWorkbook(excelFile);
-      } else if(fileName.endsWith("xlsx")) {
-          workbook = new XSSFWorkbook(excelFile);
-      }
-      return workbook;
+
+    public static Workbook getWorkBook(String fileName, String fileLocation) throws IOException {
+        FileInputStream excelFile = new FileInputStream(new File(fileLocation));
+        Workbook workbook = null;
+        if (fileName.endsWith("xls")) {
+            workbook = new HSSFWorkbook(excelFile);
+        } else if (fileName.endsWith("xlsx")) {
+            workbook = new XSSFWorkbook(excelFile);
+        }
+        return workbook;
     }
+
     public static String getCellValue(Cell cell) {
         String cellValue = "";
-        if(cell == null)
-        {
+        if (cell == null) {
             return cellValue;
         }
-        // get type : cell.getCellType
         switch (cell.getCellType()) {
             case Cell.CELL_TYPE_STRING:
                 cellValue = cell.getStringCellValue();
                 break;
             case Cell.CELL_TYPE_BOOLEAN:
-                cellValue =Boolean.toString(cell.getBooleanCellValue());
+                cellValue = Boolean.toString(cell.getBooleanCellValue());
                 break;
-            case Cell.CELL_TYPE_ERROR:
-                cellValue= NumberToTextConverter.toText(cell.getNumericCellValue());
+            case Cell.CELL_TYPE_NUMERIC:
+                cellValue = NumberToTextConverter.toText(cell.getNumericCellValue());
                 break;
-            case  Cell.CELL_TYPE_FORMULA:
-                   switch (cell.getCellType()) {
-                       case Cell.CELL_TYPE_STRING:
-                           cellValue = cell.getStringCellValue();
-                           break;
-                       case  Cell.CELL_TYPE_NUMERIC:
-                           cellValue= NumberToTextConverter.toText(cell.getNumericCellValue());
-                           break;
-                   }
-            default:
-                break;
+            case Cell.CELL_TYPE_FORMULA:
+                switch (cell.getCellType()) {
+                    case Cell.CELL_TYPE_STRING:
+                        cellValue = cell.getStringCellValue();
+                        break;
+                    case Cell.CELL_TYPE_NUMERIC:
+                        cellValue = NumberToTextConverter.toText(cell.getNumericCellValue());
+                        break;
+                }
         }
         return cellValue;
     }
-
 }

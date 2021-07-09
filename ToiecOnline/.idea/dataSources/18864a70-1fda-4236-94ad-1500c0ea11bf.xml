@@ -1158,16 +1158,25 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="325" parent="298" name="fk_user_role">
+    <index id="325" parent="298" name="name">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="326" parent="298" name="fk_user_role">
       <ColNames>roleid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="326" parent="298" name="PRIMARY">
+    <key id="327" parent="298" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="327" parent="298" name="fk_user_role">
+    <key id="328" parent="298" name="name">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>name</UnderlyingIndexName>
+    </key>
+    <foreign-key id="329" parent="298" name="fk_user_role">
       <ColNames>roleid</ColNames>
       <RefTableName>role</RefTableName>
       <RefColNames>roleid</RefColNames>

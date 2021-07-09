@@ -2,8 +2,10 @@ package com.example.core.service;
 
 import com.example.core.dto.CheckLogin;
 import com.example.core.dto.UserDTO;
+import com.example.core.dto.UserImportDTO;
 import com.example.core.persistence.entity.UserEntity;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -15,4 +17,6 @@ public interface UserService {
     void saveUser(UserDTO userDTO);
     UserDTO updateUser(UserDTO userDTO);
     CheckLogin checkLogin(String username, String password);
+    void validateImportUser(List<UserImportDTO> userImportDTOS);
+    void saveUserImport(List<UserImportDTO> userImportDTOS);
 }
