@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="2869" started-at="2021-06-26T07:27:00 ICT" finished-at="2021-06-26T07:27:02 ICT">
+  <suite name="Command line suite" duration-ms="8498" started-at="2021-07-10T15:34:51 ICT" finished-at="2021-07-10T15:34:59 ICT">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="2869" started-at="2021-06-26T07:27:00 ICT" finished-at="2021-06-26T07:27:02 ICT">
+    <test name="Command line test" duration-ms="8498" started-at="2021-07-10T15:34:51 ICT" finished-at="2021-07-10T15:34:59 ICT">
       <class name="com.example.core.test.ListenGuideLineTest">
-        <test-method status="PASS" signature="initData()[pri:0, instance:com.example.core.test.ListenGuideLineTest@59494225]" name="initData" is-config="true" duration-ms="42" started-at="2021-06-26T07:27:00 ICT" finished-at="2021-06-26T07:27:00 ICT">
+        <test-method status="PASS" signature="initData()[pri:0, instance:com.example.core.test.ListenGuideLineTest@2d928643]" name="initData" is-config="true" duration-ms="93" started-at="2021-07-10T15:34:51 ICT" finished-at="2021-07-10T15:34:51 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initData -->
-        <test-method status="PASS" signature="checkApiFindbyProperty()[pri:0, instance:com.example.core.test.ListenGuideLineTest@59494225]" name="checkApiFindbyProperty" duration-ms="2792" started-at="2021-06-26T07:27:00 ICT" finished-at="2021-06-26T07:27:02 ICT">
+        <test-method status="PASS" signature="checkApiFindbyProperty()[pri:0, instance:com.example.core.test.ListenGuideLineTest@2d928643]" name="checkApiFindbyProperty" duration-ms="67" started-at="2021-07-10T15:34:59 ICT" finished-at="2021-07-10T15:34:59 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkApiFindbyProperty -->
-        <test-method status="PASS" signature="testFindByProperty()[pri:0, instance:com.example.core.test.ListenGuideLineTest@59494225]" name="testFindByProperty" duration-ms="0" started-at="2021-06-26T07:27:02 ICT" finished-at="2021-06-26T07:27:02 ICT">
+        <test-method status="PASS" signature="testFindByProperty()[pri:0, instance:com.example.core.test.ListenGuideLineTest@2d928643]" name="testFindByProperty" duration-ms="0" started-at="2021-07-10T15:34:59 ICT" finished-at="2021-07-10T15:34:59 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFindByProperty -->
       </class> <!-- com.example.core.test.ListenGuideLineTest -->
+      <class name="com.example.core.test.ImportTest">
+        <test-method status="PASS" signature="TestImport()[pri:0, instance:com.example.core.test.ImportTest@5025a98f]" name="TestImport" duration-ms="8246" started-at="2021-07-10T15:34:51 ICT" finished-at="2021-07-10T15:34:59 ICT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestImport -->
+      </class> <!-- com.example.core.test.ImportTest -->
     </test> <!-- Command line test -->
   </suite> <!-- Command line suite -->
 </testng-results>

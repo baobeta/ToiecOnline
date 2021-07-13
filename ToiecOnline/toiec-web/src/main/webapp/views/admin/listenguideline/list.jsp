@@ -125,8 +125,9 @@
                                 <c:param name="pojo.listenGuidelineId" value="${tableList.listenGuidelineId}"/>
                             </c:url>
                             <a class="btn btn-sm btn-primary btn-edit" href="${editUrl}" data-toggle="tooltip"
-                               title="<fmt:message key='label.listenguideline.update' bundle='${lang}'/>"><i
-                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                               title="<fmt:message key='label.listenguideline.update' bundle='${lang}'/>">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
                             </display:column>
                             </display:table>
                             </fmt:bundle>
@@ -144,7 +145,6 @@
 <script>
     $(document).ready(function () {
         $('#btnSearch').click(function () {
-
             $('#formUrl').submit();
         });
     });

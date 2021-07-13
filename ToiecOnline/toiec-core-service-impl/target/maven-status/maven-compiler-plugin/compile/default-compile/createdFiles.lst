@@ -1,3 +1,5 @@
 com\example\core\service\impl\ListenGuideLineServiceImpl.class
-com\example\core\service\impl\TestServiceImpl.class
 com\example\core\service\impl\UserServiceImpl.class
+com\example\core\service\utils\SingletonDaoUtil.class
+com\example\core\service\impl\RoleServiceImpl.class
+com\example\core\service\impl\TestServiceImpl.class

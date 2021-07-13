@@ -4,7 +4,12 @@
 <html>
 <head>
     <title><fmt:message key="label.guideline.listen.edit" bundle="${lang}"/></title>
-    <script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+
 </head>
 <body>
 <div class="main-content">
@@ -37,7 +42,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right"><fmt:message key="label.guideline.listen.title" bundle="${lang}"/></label>
                             <div class="col-sm-9">
-                                <input type="text" name="pojo.title" id="title" value=""/>
+                                <input type="text" name="pojo.title" id="title" value="${item.pojo.title}"/>
                             </div>
                         </div>
                         <br/>
@@ -45,19 +50,19 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right"><fmt:message key="label.grammarguideline.upload.image" bundle="${lang}"/></label>
                             <div class="col-sm-9">
-                                <input type="file" name="file" id="uploadImage"/>
+                                <input type="file" name="file" id="uploadImage" value=""/>
                             </div>
                         </div>
                         <br/>
-<%--                        <div class="form-group">--%>
-<%--                            <label class="col-sm-3 control-label no-padding-right"><fmt:message key="label.grammarguideline.upload.image.view" bundle="${lang}"/></label>--%>
-<%--                            <div class="col-sm-9">--%>
-<%--&lt;%&ndash;                                <c:if test="${not empty item.pojo.image}">&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                    <c:set var="image" value="/repository/${item.pojo.image}"/>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                </c:if>&ndash;%&gt;--%>
-<%--                                <img src="" id="viewImage" width="150px" height="150ox">--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right"><fmt:message key="label.grammarguideline.upload.image.view" bundle="${lang}"/></label>
+                            <div class="col-sm-9">
+                                <c:if test="${not empty item.pojo.image}">
+                                    <c:set var="image" value="/repository/${item.pojo.image}"/>
+                                </c:if>
+                                <img src="/toiec_web_war_exploded${image}" id="viewImage" width="150px" height="150ox">
+                            </div>
+                        </div>
                         <br/>
                         <br/>
                         <div class="form-group">
@@ -76,7 +81,9 @@
                                 <input type="submit" class="btn btn-white btn-warning btn-bold" value="<fmt:message key="label.done" bundle="${lang}"/>"/>
                             </div>
                         </div>
-
+                        <c:if test="${not empty item.pojo.listenGuidelineId}">
+                            <input type="hidden" name="pojo.listenGuidelineId" value="${item.pojo.listenGuidelineId}"/>
+                        </c:if>
                     </form>
                 </div>
             </div>
@@ -84,9 +91,58 @@
     </div>
 </div>
 <script>
+    var listenGuidelineId = '';
+    <c:if test="${not empty item.pojo.listenGuidelineId}">
+        listenGuidelineId = ${ item.pojo.listenGuidelineId};
+    </c:if>
     $(document).ready(function () {
-        CKEDITOR.replace('listenGuidelineContext');
+       CKEDITOR.replace( 'listenGuidelineContext' );
+       validateData();
+       $('#uploadImage').change(function (){
+          readURL(this,"viewImage");
+       });
+
     });
+    function validateData() {
+        $('#formEdit').validate({
+            ignore: [],
+            rules: [],
+            message: [],
+
+        })
+        $( "#title").rules( "add", {
+            required: true,
+            messages: {
+                required: '<fmt:message key="label.error" bundle="${lang}"/>'
+            }
+        });
+        if(listenGuidelineId == '') {
+            $( "#uploadImage").rules( "add", {
+                required: true,
+                messages: {
+                    required: '<fmt:message key="label.error" bundle="${lang}"/>'
+                }
+            });
+        }
+        $( "#listenGuidelineContext").rules( "add", {
+            required: function () {
+                CKEDITOR.instances.listenGuidelineContext.updateElement();
+            },
+            messages: {
+                required: '<fmt:message key="label.error" bundle="${lang}"/>'
+            }
+        });
+    }
+    function readURL(input, imageId) {
+        if(input.files &&input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#'+imageId).attr('src', reader.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+        
+    }
 </script>
 </body>
 </html>

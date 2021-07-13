@@ -1,4 +1,3 @@
-
 <div class="center">
     <h1>
         <i class="ace-icon fa fa-leaf green"></i>
