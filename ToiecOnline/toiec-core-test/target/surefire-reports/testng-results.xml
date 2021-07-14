@@ -2,26 +2,26 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="8498" started-at="2021-07-10T15:34:51 ICT" finished-at="2021-07-10T15:34:59 ICT">
+  <suite name="Command line suite" duration-ms="4975" started-at="2021-07-13T18:22:28 ICT" finished-at="2021-07-13T18:22:33 ICT">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="8498" started-at="2021-07-10T15:34:51 ICT" finished-at="2021-07-10T15:34:59 ICT">
+    <test name="Command line test" duration-ms="4975" started-at="2021-07-13T18:22:28 ICT" finished-at="2021-07-13T18:22:33 ICT">
       <class name="com.example.core.test.ListenGuideLineTest">
-        <test-method status="PASS" signature="initData()[pri:0, instance:com.example.core.test.ListenGuideLineTest@2d928643]" name="initData" is-config="true" duration-ms="93" started-at="2021-07-10T15:34:51 ICT" finished-at="2021-07-10T15:34:51 ICT">
+        <test-method status="PASS" signature="initData()[pri:0, instance:com.example.core.test.ListenGuideLineTest@49993335]" name="initData" is-config="true" duration-ms="150" started-at="2021-07-13T18:22:28 ICT" finished-at="2021-07-13T18:22:29 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initData -->
-        <test-method status="PASS" signature="checkApiFindbyProperty()[pri:0, instance:com.example.core.test.ListenGuideLineTest@2d928643]" name="checkApiFindbyProperty" duration-ms="67" started-at="2021-07-10T15:34:59 ICT" finished-at="2021-07-10T15:34:59 ICT">
+        <test-method status="PASS" signature="checkApiFindbyProperty()[pri:0, instance:com.example.core.test.ListenGuideLineTest@49993335]" name="checkApiFindbyProperty" duration-ms="33" started-at="2021-07-13T18:22:33 ICT" finished-at="2021-07-13T18:22:33 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkApiFindbyProperty -->
-        <test-method status="PASS" signature="testFindByProperty()[pri:0, instance:com.example.core.test.ListenGuideLineTest@2d928643]" name="testFindByProperty" duration-ms="0" started-at="2021-07-10T15:34:59 ICT" finished-at="2021-07-10T15:34:59 ICT">
+        <test-method status="PASS" signature="testFindByProperty()[pri:0, instance:com.example.core.test.ListenGuideLineTest@49993335]" name="testFindByProperty" duration-ms="0" started-at="2021-07-13T18:22:33 ICT" finished-at="2021-07-13T18:22:33 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFindByProperty -->
       </class> <!-- com.example.core.test.ListenGuideLineTest -->
       <class name="com.example.core.test.ImportTest">
-        <test-method status="PASS" signature="TestImport()[pri:0, instance:com.example.core.test.ImportTest@5025a98f]" name="TestImport" duration-ms="8246" started-at="2021-07-10T15:34:51 ICT" finished-at="2021-07-10T15:34:59 ICT">
+        <test-method status="PASS" signature="TestImport()[pri:0, instance:com.example.core.test.ImportTest@20322d26]" name="TestImport" duration-ms="4741" started-at="2021-07-13T18:22:29 ICT" finished-at="2021-07-13T18:22:33 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestImport -->

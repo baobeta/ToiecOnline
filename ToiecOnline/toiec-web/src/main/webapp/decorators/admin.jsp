@@ -17,13 +17,14 @@
     <link rel="stylesheet" href="<c:url value="/template/admin/css/global_admin_style.css"/>">
     <script type="text/javascript" src="<c:url value="/template/admin/js/global_admin_script.js"/>"></script>
     <script type="text/javascript" src="<c:url value='/template/admin/assets/js/jquery.validate.min.js' />"></script>
-    <%--ckeditor plugin--%>
-    <script type="text/javascript" src="https://cdn.ckeditor.com/4.16.1/full-all/ckeditor.js"></script>
+<%--    &lt;%&ndash;ckeditor plugin&ndash;%&gt;--%>
+<%--    <script type="text/javascript" src="https://cdn.ckeditor.com/4.16.1/full-all/ckeditor.js"></script>--%>
 
 
     <%--ckeditor plugin--%>
-<%--    <script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>--%>
+    <script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>
 
+    <script type="text/javascript" src="<c:url value="/ckfinder/ckfinder.js"/>"></script>
     <%--sweetalert--%>
     <script type='text/javascript' src='<c:url value="/template/admin/sweetalert/sweetalert2.min.js"/>'></script>
     <link rel="stylesheet" href="<c:url value="/template/admin/sweetalert/sweetalert2.min.css"/>">

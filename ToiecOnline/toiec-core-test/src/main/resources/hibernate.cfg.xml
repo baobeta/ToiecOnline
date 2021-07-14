@@ -17,7 +17,5 @@
         <mapping class="com.example.core.persistence.entity.CommentEntity"/>
         <mapping class="com.example.core.persistence.entity.ListenGuideLineEntity"/>
 
-
-
     </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jboss-vfs-3.2.11.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/toiec-web/src/main/webapp/WEB-INF/lib/jboss-vfs-3.2.11.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -32,6 +32,7 @@
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
@@ -48,6 +49,18 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery-ui" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="CKFinder-2.6.2.1" level="project" />
+    <orderEntry type="library" name="activation-1.1" level="project" />
+    <orderEntry type="library" name="CKFinderPlugin-FileEditor-2.6.2.1" level="project" />
+    <orderEntry type="library" name="CKFinderPlugin-ImageResize-2.6.2.1" level="project" />
+    <orderEntry type="library" name="CKFinderPlugin-Watermark-2.6.2.1" level="project" />
+    <orderEntry type="library" name="commons-fileupload-1.2.2" level="project" />
+    <orderEntry type="library" name="commons-io-2.0.1" level="project" />
+    <orderEntry type="library" name="gson-2.5" level="project" />
+    <orderEntry type="library" name="jboss-logging-3.1.4.GA" level="project" />
+    <orderEntry type="library" name="jboss-vfs-3.2.11.Final" level="project" />
+    <orderEntry type="library" name="mail-1.4.1" level="project" />
+    <orderEntry type="library" name="thumbnailator-0.4.8" level="project" />
     <orderEntry type="module" module-name="toiec-core-persistence-data" />
     <orderEntry type="module" module-name="toiec-web-logic" />
     <orderEntry type="module" module-name="toiec-core-dto" />
@@ -63,17 +76,18 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.3" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.23" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.5.2.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.4.10.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:javax.persistence-api:2.2" level="project" />
-    <orderEntry type="library" name="Maven: org.javassist:javassist:3.27.0-GA" level="project" />
-    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.10.22" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.24.0-GA" level="project" />
+    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.10.2" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss:jandex:2.2.3.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss:jandex:2.1.1.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:javax.activation-api:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.dom4j:dom4j:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jaxb:txw2:2.3.1" level="project" />
@@ -106,5 +120,6 @@
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.virtuald:curvesapi:1.04" level="project" />
+    <orderEntry type="library" name="activation-1.1 (2)" level="project" />
   </component>
 </module>

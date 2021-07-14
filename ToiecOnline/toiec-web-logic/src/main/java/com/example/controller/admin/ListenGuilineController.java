@@ -68,7 +68,7 @@ public class ListenGuilineController extends HttpServlet {
         Object[] objects = uploadUtil.writeOrUpdateFile(req,valueTitle,WebConstant.LISTENGUIDELINE);
         boolean checkStatusUploadImage = (boolean) objects[0];
         if(!checkStatusUploadImage) {
-            resp.sendRedirect("/toiec_web_war_exploded/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_error");
+            resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_error");
         } else {
             ListenGuideLineDTO dto = command.getPojo();
             if(StringUtils.isNotBlank(objects[2].toString())) {
@@ -87,18 +87,18 @@ public class ListenGuilineController extends HttpServlet {
                     dto.setCreatedDate(listenGuideLineDTO.getCreatedDate());
                     ListenGuideLineDTO result = SingletonServiceUtil.getListenGuideLineServiceInstance().updateListenGuideLine(dto);
                     if(result!=null) {
-                        resp.sendRedirect("/toiec_web_war_exploded/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_update");
+                        resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_update");
                     } else {
-                        resp.sendRedirect("/toiec_web_war_exploded/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_error");
+                        resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_error");
                     }
 
                 } else {
                     try {
                         SingletonServiceUtil.getListenGuideLineServiceInstance().saveListenGuideLine(dto);
-                        resp.sendRedirect("/toiec_web_war_exploded/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_insert");
+                        resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_insert");
                     } catch (Exception e) {
                         log.error(e.getMessage(), e);
-                        resp.sendRedirect("/toiec_web_war_exploded/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_error");
+                        resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_error");
                     }
                 }
             }
@@ -107,7 +107,7 @@ public class ListenGuilineController extends HttpServlet {
         }
 //        Map<String, String> mapValue = (Map<String, String>) objects[3];
 //        command = returnValueListenGuidelineCommand(valueTitle,command,mapValue);
-//        resp.sendRedirect("/toiec_web_war_exploded/admin-guideline-listen-list.html?urlType=url_list");
+//        resp.sendRedirect("admin-guideline-listen-list.html?urlType=url_list");
 
     }
 

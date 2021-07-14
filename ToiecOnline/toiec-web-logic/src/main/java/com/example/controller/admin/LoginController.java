@@ -43,10 +43,10 @@ public class LoginController extends HttpServlet {
            CheckLogin checkLogin = SingletonServiceUtil.getUserServiceInstance().checkLogin(pojo.getName(), pojo.getPassword());
            if(checkLogin.isUserExist()) {
                if(checkLogin.getRoleName().equals(WebConstant.ROLE_ADMIN)) {
-                   response.sendRedirect("/toiec_web_war_exploded/admin-home.html");
+                   response.sendRedirect("/admin-home.html");
                }
                else if(checkLogin.getRoleName().equals(WebConstant.ROLE_USER)) {
-                   response.sendRedirect("/toiec_web_war_exploded/home.html");
+                   response.sendRedirect("/home.html");
                }
            }
            else {
@@ -83,9 +83,9 @@ public class LoginController extends HttpServlet {
 //            if(SingletonServiceUtil.getUserServiceInstance().isUserExist(pojo)!=null) {
 //                if(SingletonServiceUtil.getUserServiceInstance().findRoleByUser(pojo).getRoleDTO()!=null) {
 //                    if(SingletonServiceUtil.getUserServiceInstance().findRoleByUser(pojo).getRoleDTO().getName().equals(WebConstant.ROLE_ADMIN)) {
-//                        response.sendRedirect("/toiec_web_war_exploded/admin-home.html");
+//                        response.sendRedirect("admin-home.html");
 //                    } else if((SingletonServiceUtil.getUserServiceInstance().findRoleByUser(pojo).getRoleDTO().getName().equals(WebConstant.ROLE_USER))) {
-//                        response.sendRedirect("/toiec_web_war_exploded/home.html");
+//                        response.sendRedirect("home.html");
 //                    }
 //                }
 //            }

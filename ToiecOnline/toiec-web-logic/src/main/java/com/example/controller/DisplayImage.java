@@ -16,7 +16,7 @@ public class DisplayImage extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse reponse)
             throws ServletException, IOException {
         String imageUrl = request.getRequestURI();
-        String relativeImagePath = imageUrl.substring("/toiec_web_war_exploded/repository/".length());
+        String relativeImagePath = imageUrl.substring("/repository/".length());
         ServletOutputStream outputStream;
         outputStream = reponse.getOutputStream();
         FileInputStream fin = new FileInputStream(imageBase+ File.separator+relativeImagePath);

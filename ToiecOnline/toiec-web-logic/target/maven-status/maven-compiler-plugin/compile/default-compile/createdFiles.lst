@@ -1,3 +1,4 @@
+com\example\controller\DisplayImage.class
 com\example\controller\admin\ListenGuilineController.class
 com\example\command\ListenGuilineCommand.class
 com\example\controller\admin\LoginController.class

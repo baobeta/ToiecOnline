@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp"%>
 <c:url var="formUrl" value="/admin-guideline-listen-edit.html"/>
 <html>
@@ -60,7 +60,7 @@
                                 <c:if test="${not empty item.pojo.image}">
                                     <c:set var="image" value="/repository/${item.pojo.image}"/>
                                 </c:if>
-                                <img src="/toiec_web_war_exploded${image}" id="viewImage" width="150px" height="150ox">
+                                <img src="${image}" id="viewImage" width="150px" height="150ox">
                             </div>
                         </div>
                         <br/>
@@ -96,7 +96,9 @@
         listenGuidelineId = ${ item.pojo.listenGuidelineId};
     </c:if>
     $(document).ready(function () {
-       CKEDITOR.replace( 'listenGuidelineContext' );
+       // CKEDITOR.replace( 'listenGuidelineContext' );
+        var editor = CKEDITOR.replace( 'listenGuidelineContext' );
+        CKFinder.setupCKEditor( editor, '/ckfinder/' );
        validateData();
        $('#uploadImage').change(function (){
           readURL(this,"viewImage");
