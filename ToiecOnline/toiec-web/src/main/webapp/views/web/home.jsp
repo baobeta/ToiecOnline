@@ -70,11 +70,11 @@
     </div>
     <div class="span4">
         <img src="img/icon3.png">
-<%--        <h2><fmt:message key="label.guideline.listen" bundle="${lang}"/></h2>--%>
+        <h2><fmt:message key="label.guideline.listen" bundle="${lang}"/></h2>
         <p>
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
         </p>
-<%--        <a href="<c:url value="/danh-sach-huong-dan-nghe.html"/>">Read More &rarr;</a>--%>
+        <a href="<c:url value="/danh-sach-huong-dan-nghe.html"/>">Read More &rarr;</a>
     </div>
 
     <div class="span4">
