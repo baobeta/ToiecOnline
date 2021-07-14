@@ -11,6 +11,7 @@ import com.example.core.service.impl.RoleServiceImpl;
 import com.example.core.service.impl.UserServiceImpl;
 import com.example.core.wed.common.WebConstant;
 import com.example.core.wed.utils.FormUtil;
+import com.example.core.wed.utils.RequestUtil;
 import com.example.core.wed.utils.SingletonServiceUtil;
 import com.example.core.wed.utils.WebCommonUtil;
 import com.example.toiec.core.common.utils.ExcelPoiUtil;
@@ -53,6 +54,8 @@ public class UserController extends HttpServlet {
         if(command.getUrlType()!= null && command.getUrlType().equals(WebConstant.URL_LIST))
         {
             Map<String, Object> map = new HashMap<String, Object>();
+            command.setMaxPageItems(3);
+            RequestUtil.initSearchBean(request,command);
             Object[] objects = SingletonServiceUtil.getUserServiceInstance().findByProperty(map,command.getSortExpression(), command.getSortDirection(), command.getFirstItem(), command.getMaxPageItems());
             command.setListResult((List<UserDTO>) objects[1]);
             command.setTotalItems(Integer.parseInt(objects[0].toString()));
@@ -77,9 +80,7 @@ public class UserController extends HttpServlet {
             requestDispatcher.forward(request,response);
         } else if(command.getUrlType()!= null && command.getUrlType().equals(VALIDATE_IMPORTER)) {
             List<UserImportDTO> userImportDTO = (List<UserImportDTO>) SessionUtil.getInstance().getValue(request,LIST_USER_IMPORT);
-            command.setMaxPageItems(3);
-            command.setTotalItems(userImportDTO.size());
-            command.setUserImportDTOs(userImportDTO);
+            command.setUserImportDTOs(returnListUserImport(command, userImportDTO, request));
             request.setAttribute(WebConstant.LIST_ITEM,command);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/admin/user/importuser.jsp");
             requestDispatcher.forward(request,response);
@@ -87,6 +88,26 @@ public class UserController extends HttpServlet {
         }
 
     }
+
+    private List<UserImportDTO> returnListUserImport(UserCommand command, List<UserImportDTO> userImportDTO, HttpServletRequest request) {
+        command.setMaxPageItems(3);
+        RequestUtil.initSearchBean(request,command);
+        command.setTotalItems(userImportDTO.size());
+        int fromIndex = command.getFirstItem();
+        if(fromIndex>command.getTotalItems()) {
+            fromIndex = 0;
+            command.setFirstItem(0);
+        }
+        int toIndex = command.getFirstItem() + command.getMaxPageItems();
+        if(userImportDTO.size()>0) {
+            if(toIndex> userImportDTO.size()) {
+                toIndex = userImportDTO.size();
+            }
+            command.setUserImportDTOs(userImportDTO.subList(fromIndex,toIndex));
+        }
+        return userImportDTO.subList(fromIndex,toIndex);
+    }
+
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
