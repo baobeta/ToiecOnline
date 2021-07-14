@@ -32,6 +32,8 @@ public class UserEntity {
     @JoinColumn(name = "roleid")
     private  RoleEntity roleEntity;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<ResultEntity> results;
 
     public Integer getUserId() {
         return userId;
@@ -90,4 +92,11 @@ public class UserEntity {
     }
 
 
+    public List<ResultEntity> getResults() {
+        return results;
+    }
+
+    public void setResults(List<ResultEntity> results) {
+        this.results = results;
+    }
 }

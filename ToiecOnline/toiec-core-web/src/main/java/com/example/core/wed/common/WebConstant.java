@@ -17,7 +17,9 @@ public class WebConstant {
     public static final String REDIRECT_INSERT="redirect_insert";
     public static final String REDIRECT_DELETE="redirect_delete";
     public static final String REDIRECT_ERROR="redirect_error";
-
+    public static final String LOGIN_NAME="login_name";
+    public static final String LOGIN="login";
+    public static final String LOGOUT="logout";
 
 
 }

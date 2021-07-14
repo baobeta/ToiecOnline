@@ -9,6 +9,7 @@ import com.example.core.service.impl.UserServiceImpl;
 import com.example.core.wed.common.WebConstant;
 import com.example.core.wed.utils.FormUtil;
 import com.example.core.wed.utils.SingletonServiceUtil;
+import com.example.toiec.core.common.utils.SessionUtil;
 import org.apache.log4j.Logger;
 
 import javax.persistence.NoResultException;
@@ -18,12 +19,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 //import java.util.logging.Logger;
 
-@WebServlet("/login.html")
+@WebServlet(urlPatterns = {"/logout.html","/login.html"})
 public class LoginController extends HttpServlet {
     private final Logger log = Logger.getLogger(String.valueOf(this.getClass()));
     Locale locale;
@@ -31,8 +33,21 @@ public class LoginController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/web/login.jsp");
-        requestDispatcher.forward(request,response);
+        try {
+            String action = request.getParameter("action");
+            if(action.equals(WebConstant.LOGIN)) {
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/web/login.jsp");
+                requestDispatcher.forward(request,response);
+            } else if (action.equals(WebConstant.LOGOUT)) {
+                SessionUtil.getInstance().remove(request,WebConstant.LOGIN_NAME);
+                response.sendRedirect("/home.html");
+            }
+
+        } catch( NullPointerException e) {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/web/login.jsp");
+            requestDispatcher.forward(request,response);
+
+        }
     }
 
     protected void doPost(HttpServletRequest request,
@@ -42,6 +57,7 @@ public class LoginController extends HttpServlet {
        if(pojo!= null) {
            CheckLogin checkLogin = SingletonServiceUtil.getUserServiceInstance().checkLogin(pojo.getName(), pojo.getPassword());
            if(checkLogin.isUserExist()) {
+               SessionUtil.getInstance().putValue(request,WebConstant.LOGIN_NAME,pojo.getName());
                if(checkLogin.getRoleName().equals(WebConstant.ROLE_ADMIN)) {
                    response.sendRedirect("/admin-home.html");
                }
