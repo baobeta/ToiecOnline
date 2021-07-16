@@ -10,6 +10,7 @@ public class ExerciseDTO {
     private Timestamp createdDate;
     private Timestamp modifiedDate;
     private List<ExerciseQuestionDTO> exerciseQuestions;
+    private String type;
 
     public Integer getExerciseId() {
         return exerciseId;
@@ -59,7 +60,7 @@ public class ExerciseDTO {
         this.type = type;
     }
 
-    private String type;
+
 
 
 }
