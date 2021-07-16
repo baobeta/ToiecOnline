@@ -1,3 +1,9 @@
+com\example\core\daoimpl\ExerciseDaoImpl.class
+com\example\core\daoimpl\ExaminationDaoImpl.class
+com\example\core\daoimpl\ExaminationQuestionDaoImpl.class
 com\example\core\daoimpl\UserDaoImpl.class
 com\example\core\daoimpl\ListenGuideLineImpl.class
 com\example\core\daoimpl\RoleDaoImpl.class
+com\example\core\daoimpl\ExerciseQuestionDaoImpl.class
+com\example\core\daoimpl\CommentDaoImpl.class
+com\example\core\daoimpl\ResultDaoImpl.class

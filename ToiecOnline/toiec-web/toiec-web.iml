@@ -121,5 +121,7 @@
     <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.virtuald:curvesapi:1.04" level="project" />
     <orderEntry type="library" name="activation-1.1 (2)" level="project" />
+    <orderEntry type="library" name="gson-2.5 (2)" level="project" />
+    <orderEntry type="library" name="thumbnailator-0.4.8 (2)" level="project" />
   </component>
 </module>

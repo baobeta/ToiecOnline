@@ -1,4 +1,9 @@
 com\example\core\persistence\entity\CommentEntity.class
 com\example\core\persistence\entity\RoleEntity.class
+com\example\core\persistence\entity\ExaminationEntity.class
+com\example\core\persistence\entity\ExaminationQuestionEntity.class
+com\example\core\persistence\entity\ExerciseEntity.class
+com\example\core\persistence\entity\ExerciseQuestionEntity.class
 com\example\core\persistence\entity\ListenGuideLineEntity.class
 com\example\core\persistence\entity\UserEntity.class
+com\example\core\persistence\entity\ResultEntity.class

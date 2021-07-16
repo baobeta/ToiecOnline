@@ -1,3 +1,9 @@
-com\example\core\service\RoleService.class
+com\example\core\service\CommentService.class
+com\example\core\service\ExaminationQuestionService.class
+com\example\core\service\ExaminationService.class
+com\example\core\service\ExerciseService.class
+com\example\core\service\ResultService.class
 com\example\core\service\ListenGuideLineService.class
 com\example\core\service\UserService.class
+com\example\core\service\RoleService.class
+com\example\core\service\ExerciseQuestionService.class

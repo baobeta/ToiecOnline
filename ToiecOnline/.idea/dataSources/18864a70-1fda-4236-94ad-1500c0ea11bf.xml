@@ -1040,488 +1040,440 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <table id="297" parent="16" name="examinationquestion"/>
     <table id="298" parent="16" name="exercise"/>
     <table id="299" parent="16" name="exercisequestion"/>
-    <table id="300" parent="16" name="exercisetype"/>
-    <table id="301" parent="16" name="listenguideline"/>
-    <table id="302" parent="16" name="result"/>
-    <table id="303" parent="16" name="role"/>
-    <table id="304" parent="16" name="user"/>
-    <column id="305" parent="295" name="commentid">
+    <table id="300" parent="16" name="listenguideline"/>
+    <table id="301" parent="16" name="result"/>
+    <table id="302" parent="16" name="role"/>
+    <table id="303" parent="16" name="user"/>
+    <column id="304" parent="295" name="commentid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="306" parent="295" name="context">
+    <column id="305" parent="295" name="context">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="307" parent="295" name="userid">
+    <column id="306" parent="295" name="userid">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="308" parent="295" name="listenguidelineid">
+    <column id="307" parent="295" name="listenguidelineid">
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="309" parent="295" name="createddate">
+    <column id="308" parent="295" name="createddate">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="310" parent="295" name="fk_user_comment">
+    <index id="309" parent="295" name="fk_user_comment">
       <ColNames>userid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="311" parent="295" name="fk_listenguideline_comment">
+    <index id="310" parent="295" name="fk_listenguideline_comment">
       <ColNames>listenguidelineid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="312" parent="295" name="PRIMARY">
+    <key id="311" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>commentid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="313" parent="295" name="fk_user_comment">
+    <foreign-key id="312" parent="295" name="fk_user_comment">
       <ColNames>userid</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>userid</RefColNames>
     </foreign-key>
-    <foreign-key id="314" parent="295" name="fk_listenguideline_comment">
+    <foreign-key id="313" parent="295" name="fk_listenguideline_comment">
       <ColNames>listenguidelineid</ColNames>
       <RefTableName>listenguideline</RefTableName>
       <RefColNames>listenguidelineid</RefColNames>
     </foreign-key>
-    <column id="315" parent="296" name="examinationid">
+    <column id="314" parent="296" name="examinationid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="316" parent="296" name="name">
+    <column id="315" parent="296" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="317" parent="296" name="createddate">
+    <column id="316" parent="296" name="createddate">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="318" parent="296" name="modifieddate">
+    <column id="317" parent="296" name="modifieddate">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="319" parent="296" name="name">
+    <index id="318" parent="296" name="name">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="320" parent="296" name="PRIMARY">
+    <key id="319" parent="296" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>examinationid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="321" parent="296" name="name">
+    <key id="320" parent="296" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <column id="322" parent="297" name="examinationquestionid">
+    <column id="321" parent="297" name="examinationquestionid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="323" parent="297" name="image">
+    <column id="322" parent="297" name="image">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="324" parent="297" name="audio">
+    <column id="323" parent="297" name="audio">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="325" parent="297" name="question">
+    <column id="324" parent="297" name="question">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="326" parent="297" name="paragraph">
+    <column id="325" parent="297" name="paragraph">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="327" parent="297" name="option1">
+    <column id="326" parent="297" name="option1">
       <Position>6</Position>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="328" parent="297" name="option2">
+    <column id="327" parent="297" name="option2">
       <Position>7</Position>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="329" parent="297" name="option3">
+    <column id="328" parent="297" name="option3">
       <Position>8</Position>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="330" parent="297" name="option4">
+    <column id="329" parent="297" name="option4">
       <Position>9</Position>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="331" parent="297" name="correctanswer">
+    <column id="330" parent="297" name="correctanswer">
       <Position>10</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="332" parent="297" name="examinationid">
+    <column id="331" parent="297" name="examinationid">
       <Position>11</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="333" parent="297" name="createddate">
+    <column id="332" parent="297" name="createddate">
       <Position>12</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="334" parent="297" name="modifieddate">
+    <column id="333" parent="297" name="modifieddate">
       <Position>13</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="335" parent="297" name="type">
+    <column id="334" parent="297" name="type">
       <Position>14</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="336" parent="297" name="fk_examinationquestion_examination">
+    <index id="335" parent="297" name="fk_examinationquestion_examination">
       <ColNames>examinationid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="337" parent="297" name="PRIMARY">
+    <key id="336" parent="297" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>examinationquestionid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="338" parent="297" name="fk_examinationquestion_examination">
+    <foreign-key id="337" parent="297" name="fk_examinationquestion_examination">
       <ColNames>examinationid</ColNames>
       <RefTableName>examination</RefTableName>
       <RefColNames>examinationid</RefColNames>
     </foreign-key>
-    <column id="339" parent="298" name="exerciseid">
+    <column id="338" parent="298" name="exerciseid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="340" parent="298" name="name">
+    <column id="339" parent="298" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="341" parent="298" name="exercisetypeid">
+    <column id="340" parent="298" name="createddate">
       <Position>3</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>timestamp|0s</DataType>
     </column>
-    <column id="342" parent="298" name="createddate">
+    <column id="341" parent="298" name="modifieddate">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="343" parent="298" name="modifieddate">
+    <column id="342" parent="298" name="type">
       <Position>5</Position>
-      <DataType>timestamp|0s</DataType>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="344" parent="298" name="name">
+    <index id="343" parent="298" name="name">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="345" parent="298" name="fk_exercise_exercisetype">
-      <ColNames>exercisetypeid</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="346" parent="298" name="PRIMARY">
+    <key id="344" parent="298" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>exerciseid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="347" parent="298" name="name">
+    <key id="345" parent="298" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <foreign-key id="348" parent="298" name="fk_exercise_exercisetype">
-      <ColNames>exercisetypeid</ColNames>
-      <RefTableName>exercisetype</RefTableName>
-      <RefColNames>exercisetypeid</RefColNames>
-    </foreign-key>
-    <column id="349" parent="299" name="exercisequestionid">
+    <column id="346" parent="299" name="exercisequestionid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="350" parent="299" name="image">
+    <column id="347" parent="299" name="image">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="351" parent="299" name="audio">
+    <column id="348" parent="299" name="audio">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="352" parent="299" name="question">
+    <column id="349" parent="299" name="question">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="353" parent="299" name="option1">
+    <column id="350" parent="299" name="option1">
       <Position>5</Position>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="354" parent="299" name="option2">
+    <column id="351" parent="299" name="option2">
       <Position>6</Position>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="355" parent="299" name="option3">
+    <column id="352" parent="299" name="option3">
       <Position>7</Position>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="356" parent="299" name="option4">
+    <column id="353" parent="299" name="option4">
       <Position>8</Position>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="357" parent="299" name="correctanswer">
+    <column id="354" parent="299" name="correctanswer">
       <Position>9</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="358" parent="299" name="exerciseid">
+    <column id="355" parent="299" name="exerciseid">
       <Position>10</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="359" parent="299" name="createddate">
+    <column id="356" parent="299" name="createddate">
       <Position>11</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="360" parent="299" name="modifieddate">
+    <column id="357" parent="299" name="modifieddate">
       <Position>12</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="361" parent="299" name="fk_exercisequestion_exercise">
+    <index id="358" parent="299" name="fk_exercisequestion_exercise">
       <ColNames>exerciseid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="362" parent="299" name="PRIMARY">
+    <key id="359" parent="299" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>exercisequestionid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="363" parent="299" name="fk_exercisequestion_exercise">
+    <foreign-key id="360" parent="299" name="fk_exercisequestion_exercise">
       <ColNames>exerciseid</ColNames>
       <RefTableName>exercise</RefTableName>
       <RefColNames>exerciseid</RefColNames>
     </foreign-key>
-    <column id="364" parent="300" name="exercisetypeid">
+    <column id="361" parent="300" name="listenguidelineid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="365" parent="300" name="name">
-      <Position>2</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="366" parent="300" name="code">
-      <Position>3</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="367" parent="300" name="createddate">
-      <Position>4</Position>
-      <DataType>timestamp|0s</DataType>
-    </column>
-    <column id="368" parent="300" name="modifieddate">
-      <Position>5</Position>
-      <DataType>timestamp|0s</DataType>
-    </column>
-    <index id="369" parent="300" name="name">
-      <ColNames>name</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="370" parent="300" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>exercisetypeid</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="371" parent="300" name="name">
-      <ColNames>name</ColNames>
-      <UnderlyingIndexName>name</UnderlyingIndexName>
-    </key>
-    <column id="372" parent="301" name="listenguidelineid">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="373" parent="301" name="title">
+    <column id="362" parent="300" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="374" parent="301" name="image">
+    <column id="363" parent="300" name="image">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="375" parent="301" name="context">
+    <column id="364" parent="300" name="context">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="376" parent="301" name="createddate">
+    <column id="365" parent="300" name="createddate">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="377" parent="301" name="modifieddate">
+    <column id="366" parent="300" name="modifieddate">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="378" parent="301" name="title">
+    <index id="367" parent="300" name="title">
       <ColNames>title</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="379" parent="301" name="PRIMARY">
+    <key id="368" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>listenguidelineid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="380" parent="301" name="title">
+    <key id="369" parent="300" name="title">
       <ColNames>title</ColNames>
       <UnderlyingIndexName>title</UnderlyingIndexName>
     </key>
-    <column id="381" parent="302" name="resultid">
+    <column id="370" parent="301" name="resultid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="382" parent="302" name="listenscore">
+    <column id="371" parent="301" name="listenscore">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="383" parent="302" name="readingscore">
+    <column id="372" parent="301" name="readingscore">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="384" parent="302" name="examinationid">
+    <column id="373" parent="301" name="examinationid">
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="385" parent="302" name="userid">
+    <column id="374" parent="301" name="userid">
       <Position>5</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="386" parent="302" name="createddate">
+    <column id="375" parent="301" name="createddate">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="387" parent="302" name="modifieddate">
+    <column id="376" parent="301" name="modifieddate">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="388" parent="302" name="fk_result_examination">
+    <index id="377" parent="301" name="fk_result_examination">
       <ColNames>examinationid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="389" parent="302" name="fk_result_user">
+    <index id="378" parent="301" name="fk_result_user">
       <ColNames>userid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="390" parent="302" name="PRIMARY">
+    <key id="379" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>resultid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="391" parent="302" name="fk_result_examination">
+    <foreign-key id="380" parent="301" name="fk_result_examination">
       <ColNames>examinationid</ColNames>
       <RefTableName>examination</RefTableName>
       <RefColNames>examinationid</RefColNames>
     </foreign-key>
-    <foreign-key id="392" parent="302" name="fk_result_user">
+    <foreign-key id="381" parent="301" name="fk_result_user">
       <ColNames>userid</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>userid</RefColNames>
     </foreign-key>
-    <column id="393" parent="303" name="roleid">
+    <column id="382" parent="302" name="roleid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="394" parent="303" name="name">
+    <column id="383" parent="302" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <key id="395" parent="303" name="PRIMARY">
+    <key id="384" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>roleid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="396" parent="304" name="userid">
+    <column id="385" parent="303" name="userid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="397" parent="304" name="name">
+    <column id="386" parent="303" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="398" parent="304" name="password">
+    <column id="387" parent="303" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="399" parent="304" name="fullname">
+    <column id="388" parent="303" name="fullname">
       <Position>4</Position>
       <DataType>varchar(300)|0s</DataType>
     </column>
-    <column id="400" parent="304" name="createddate">
+    <column id="389" parent="303" name="createddate">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="401" parent="304" name="roleid">
+    <column id="390" parent="303" name="roleid">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="402" parent="304" name="name">
+    <index id="391" parent="303" name="name">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="403" parent="304" name="fk_user_role">
+    <index id="392" parent="303" name="fk_user_role">
       <ColNames>roleid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="404" parent="304" name="PRIMARY">
+    <key id="393" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="405" parent="304" name="name">
+    <key id="394" parent="303" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <foreign-key id="406" parent="304" name="fk_user_role">
+    <foreign-key id="395" parent="303" name="fk_user_role">
       <ColNames>roleid</ColNames>
       <RefTableName>role</RefTableName>
       <RefColNames>roleid</RefColNames>

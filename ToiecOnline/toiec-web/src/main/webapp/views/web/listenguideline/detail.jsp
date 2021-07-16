@@ -12,10 +12,8 @@
     <div class="span9">
         <!--Blog Post-->
         <div class="blog-post">
-<%--            <h2>${item.pojo.title}</h2>--%>
-<%--            <p>${item.pojo.content}</p>--%>
-            <h2>Tieu de</h2>
-            <p>noi dung ................................................</p>
+            <h2>${item.pojo.title}</h2>
+            <p>${item.pojo.context}</p>
             <a class="btn btn-primary" href="<c:url value="/danh-sach-huong-dan-nghe.html"/>"><fmt:message key="label.list.back" bundle="${lang}"/></a>
         </div>
         <!--===============-->

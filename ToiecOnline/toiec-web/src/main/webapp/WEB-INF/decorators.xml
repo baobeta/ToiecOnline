@@ -2,11 +2,10 @@
 <decorators defaultdir="/decorators">
     <!-- Any urls that are excluded will never be decorated by Sitemesh -->
     <excludes>
+        <pattern>/ckfinder*</pattern>
         <pattern>/404-page.html</pattern>
         <pattern>/ajax*</pattern>
-        <pattern>/ckfinder/</pattern>
     </excludes>
-    <!-- apply Sitemesh default template -->
     <decorator name="admin" page="admin.jsp">
         <pattern>/admin*</pattern>
     </decorator>
@@ -25,4 +24,5 @@
     <decorator name="product" page="product.jsp">
         <pattern>/bai-thi*</pattern>
     </decorator>
+
 </decorators>

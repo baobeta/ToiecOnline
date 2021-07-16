@@ -6,10 +6,10 @@ import com.example.core.persistence.entity.RoleEntity;
 import org.testng.annotations.Test;
 
 public class ImportTest {
-    @Test
-    public void TestImport() {
-       RoleDao roleDao = new RoleDaoImpl();
-       RoleEntity entity =roleDao.findEqualUnique("name","USER");
-       System.out.println(entity.getName());
-    }
+//    @Test
+//    public void TestImport() {
+//       RoleDao roleDao = new RoleDaoImpl();
+//       RoleEntity entity =roleDao.findEqualUnique("name","USER");
+//       System.out.println(entity.getName());
+//    }
 }

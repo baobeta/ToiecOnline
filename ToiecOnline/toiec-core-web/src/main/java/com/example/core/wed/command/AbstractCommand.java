@@ -17,6 +17,7 @@ public class AbstractCommand<T> {
     private String messageResponse;
     private int page = 1;
     private String urlType ;
+    private int totalPages;
 
     public List<T> getListResult() {
         return listResult;
@@ -114,7 +115,6 @@ public class AbstractCommand<T> {
         this.totalPages = totalPages;
     }
 
-    private int totalPages;
 
     public T getPojo() {
         return pojo;

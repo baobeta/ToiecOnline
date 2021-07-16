@@ -73,7 +73,7 @@
                                 <c:if test="${not empty item.pojo.context}">
                                     <c:set var="context" value="${item.pojo.context}"/>
                                 </c:if>
-                                <textarea name="pojo.context" cols="80" rows="10" id="listenGuidelineContext">${context}</textarea>
+                                <textarea name="pojo.context" cols="80" rows="10" id="ListenGuidelineContext">${context}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -91,14 +91,21 @@
     </div>
 </div>
 <script>
-    var listenGuidelineId = '';
+    var ListenGuidelineId = '';
     <c:if test="${not empty item.pojo.listenGuidelineId}">
-        listenGuidelineId = ${ item.pojo.listenGuidelineId};
+        ListenGuidelineId = ${ item.pojo.listenGuidelineId};
     </c:if>
     $(document).ready(function () {
        // CKEDITOR.replace( 'listenGuidelineContext' );
-        var editor = CKEDITOR.replace( 'listenGuidelineContext' );
-        CKFinder.setupCKEditor( editor, '/ckfinder/' );
+        CKEDITOR.replace( 'ListenGuidelineContext',
+            {
+                filebrowserBrowseUrl : '/ckfinder/ckfinder.html',
+                filebrowserImageBrowseUrl : '/ckfinder/ckfinder.html?type=Images',
+                filebrowserFlashBrowseUrl : '/ckfinder/ckfinder.html?type=Flash',
+                filebrowserUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
+                filebrowserImageUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
+                filebrowserFlashUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
+            });
        validateData();
        $('#uploadImage').change(function (){
           readURL(this,"viewImage");
@@ -118,7 +125,7 @@
                 required: '<fmt:message key="label.error" bundle="${lang}"/>'
             }
         });
-        if(listenGuidelineId == '') {
+        if(ListenGuidelineId == '') {
             $( "#uploadImage").rules( "add", {
                 required: true,
                 messages: {
@@ -126,9 +133,9 @@
                 }
             });
         }
-        $( "#listenGuidelineContext").rules( "add", {
+        $( "#ListenGuidelineContext").rules( "add", {
             required: function () {
-                CKEDITOR.instances.listenGuidelineContext.updateElement();
+                CKEDITOR.instances.ListenGuidelineContext.updateElement();
             },
             messages: {
                 required: '<fmt:message key="label.error" bundle="${lang}"/>'

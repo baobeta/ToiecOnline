@@ -1,3 +1,9 @@
+com\example\core\dao\ExaminationDao.class
+com\example\core\dao\ResultDao.class
+com\example\core\dao\CommentDao.class
 com\example\core\dao\UserDao.class
 com\example\core\dao\ListenGuideLineDao.class
 com\example\core\dao\RoleDao.class
+com\example\core\dao\ExerciseQuestionDao.class
+com\example\core\dao\ExerciseDao.class
+com\example\core\dao\ExaminationQuestionDao.class

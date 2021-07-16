@@ -15,7 +15,7 @@
                     <div class="contact-form">
                         <div>
                                 <span>
-                                    <input name="pojo.title" type="text" class="textbox" value=""/>
+                                    <input name="pojo.title" type="text" class="textbox" value="${items.pojo.title}"/>
                                 </span>
                         </div>
                         <div>
@@ -25,20 +25,20 @@
                         </div>
                     </div>
                 </div>
-<%--                <c:forEach var="item" items="${items.listResult}">--%>
+                <c:forEach var="item" items="${items.listResult}">
                     <div class="image group">
                         <div class="grid images_3_of_1">
-                            <img src="" alt="" />
+                            <img src="<c:url value="/repository/${item.image}"/>" alt="" />
                         </div>
                         <div class="grid news_desc">
-                            <h3></h3>
+                            <h3>${item.title}</h3>
                             <c:url value="/noi-dung-bai-huong-dan-nghe.html" var="detailUrl">
-                                <c:param name="listenguidelineid" value="1"/>
+                                <c:param name="listenguidelineid" value="${item.listenGuidelineId}"/>
                             </c:url>
                             <h4><span><a href="${detailUrl}">Chi tiết bài hướng dẫn</a></span></h4>
                         </div>
                     </div>
-<%--                </c:forEach>--%>
+                </c:forEach>
                 <ul id="pagination-demo" class="pagination-sm"></ul>
             </div>
         </div>

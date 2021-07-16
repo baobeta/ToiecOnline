@@ -1,5 +1,11 @@
-com\example\core\service\impl\ListenGuideLineServiceImpl.class
+com\example\core\service\impl\ExerciseQuestionServiceImpl.class
 com\example\core\service\impl\UserServiceImpl.class
+com\example\core\service\impl\ExerciseServiceImpl.class
 com\example\core\service\utils\SingletonDaoUtil.class
-com\example\core\service\impl\RoleServiceImpl.class
 com\example\core\service\impl\TestServiceImpl.class
+com\example\core\service\impl\ResultServiceImpl.class
+com\example\core\service\impl\ExaminationQuestionServiceImpl.class
+com\example\core\service\impl\ListenGuideLineServiceImpl.class
+com\example\core\service\impl\CommentServiceImpl.class
+com\example\core\service\impl\ExaminationServiceImpl.class
+com\example\core\service\impl\RoleServiceImpl.class
