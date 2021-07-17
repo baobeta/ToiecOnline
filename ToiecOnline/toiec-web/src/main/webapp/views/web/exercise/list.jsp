@@ -27,15 +27,13 @@
                 </div>
                 <c:forEach var="item" items="${items.listResult}">
                     <div class="image group">
-<%--                        <div class="grid images_3_of_1">--%>
-<%--                            <img src="<c:url value="/repository/${item.image}"/>" alt="" />--%>
-<%--                        </div>--%>
                         <div class="grid news_desc">
                             <h3>${item.name}</h3>
-<%--                            <c:url value="/noi-dung-bai-huong-dan-nghe.html" var="detailUrl">--%>
-<%--                                <c:param name="listenguidelineid" value="${item.listenGuidelineId}"/>--%>
-<%--                            </c:url>--%>
-                            <h4><span><a href="#">Lam bai tap nghe</a></span></h4>
+                            <c:url value="/bai-tap-thuc-hanh.html" var="detailUrl">
+                                <c:param name="exerciseId" value="${item.exerciseId}"/>
+                                <c:param name="page" value="1"/>
+                            </c:url>
+                            <h4><span><a href="${detailUrl}">Lam bai tap nghe</a></span></h4>
                         </div>
                     </div>
                 </c:forEach>
@@ -44,7 +42,7 @@
         </div>
     </div>
     <input type="hidden" id="page" name="page"/>
-    <input type="hidden" name="pojo.type"/>
+    <input type="hidden" name="pojo.type" value="${items.pojo.type}"/>
 </form>
 <script type="text/javascript">
     var totalPages = ${items.totalPages};

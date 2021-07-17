@@ -25,24 +25,16 @@ public class ExerciseController extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         ExerciseCommand command = FormUtil.populate(ExerciseCommand.class,request);
-        ExerciseDTO pojo = command.getPojo();
-        if(pojo.getExerciseId()!=null) {
-
-
-        } else {
-            executeSearchExercise(request,command);
-            request.setAttribute(WebConstant.LIST_ITEM,command);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/web/exercise/list.jsp");
-            requestDispatcher.forward(request,response);
-        }
-
-
+        executeSearchExercise(request,command);
+        request.setAttribute(WebConstant.LIST_ITEM,command);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/web/exercise/list.jsp");
+        requestDispatcher.forward(request,response);
     }
 
     private void executeSearchExercise(HttpServletRequest request, ExerciseCommand command) {
         Map<String, Object> properties = buildMapProperty(command);
         command.setMaxPageItems(3);
-        RequestUtil.initSearchBeanManual(request,command);
+        RequestUtil.initSearchBeanManual(command);
         Object[] objects = SingletonServiceUtil.getExerciseServiceInstance().findExerciseByProperties(properties, command.getSortExpression()
                 , command.getSortDirection(), command.getFirstItem(), command.getMaxPageItems());
         command.setListResult((List<ExerciseDTO>) objects[1]);

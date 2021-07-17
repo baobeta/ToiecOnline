@@ -49,7 +49,7 @@ public class ListenGuidelindeController extends HttpServlet {
     private void executeSearchListenGuide(HttpServletRequest request, ListenGuilineCommand command) {
         Map<String, Object> properties = buildMapProperty(command);
         command.setMaxPageItems(3);
-        RequestUtil.initSearchBeanManual(request,command);
+        RequestUtil.initSearchBeanManual(command);
         Object[] objects =SingletonServiceUtil.getListenGuideLineServiceInstance()
                          .findListenGuideLineByProperties(properties, command.getSortExpression()
                         , command.getSortDirection(), command.getFirstItem(), command.getMaxPageItems());

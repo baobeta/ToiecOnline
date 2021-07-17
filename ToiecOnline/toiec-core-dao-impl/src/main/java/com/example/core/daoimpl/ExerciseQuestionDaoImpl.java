@@ -5,4 +5,5 @@ import com.example.core.data.daoimpl.AbstractDao;
 import com.example.core.persistence.entity.ExerciseQuestionEntity;
 
 public class ExerciseQuestionDaoImpl extends AbstractDao<Integer, ExerciseQuestionEntity> implements ExerciseQuestionDao {
+
 }

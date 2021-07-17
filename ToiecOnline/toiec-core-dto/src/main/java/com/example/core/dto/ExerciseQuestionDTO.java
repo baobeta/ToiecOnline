@@ -104,15 +104,16 @@ public class ExerciseQuestionDTO {
         this.modifiedDate = modifiedDate;
     }
 
-    public ExerciseDTO getExerciseDTO() {
-        return exerciseDTO;
+    public ExerciseDTO getExercise() {
+        return exercise;
     }
 
-    public void setExerciseDTO(ExerciseDTO exerciseDTO) {
-        this.exerciseDTO = exerciseDTO;
+    public void setExercise(ExerciseDTO exerciseDTO) {
+        this.exercise = exerciseDTO;
     }
 
-    private ExerciseDTO exerciseDTO;
+    private ExerciseDTO exercise;
+
 
 
 }

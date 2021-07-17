@@ -69,7 +69,6 @@
         <span>Contrary to popular belief, Lorem Ipsum is not simply random text.</span>
     </div>
     <div class="span4">
-        <img src="img/icon3.png">
         <h2><fmt:message key="label.guideline.listen" bundle="${lang}"/></h2>
         <p>
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -78,16 +77,15 @@
     </div>
 
     <div class="span4">
-        <img src="img/icon2.png">
-<%--        <h2><fmt:message key="label.exercise" bundle="${lang}"/></h2>--%>
+        <h2><fmt:message key="label.exercise" bundle="${lang}"/></h2>
         <p>
             Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua.
         </p>
-<%--        <c:url var="listExercise" value="/danh-sach-bai-tap.html">--%>
-<%--            <c:param name="pojo.type" value="listening"/>--%>
-<%--        </c:url>--%>
-<%--        <a href="${listExercise}">Read More &rarr;</a>--%>
+        <c:url var="listExercise" value="/danh-sach-bai-tap.html">
+            <c:param name="pojo.type" value="listening"/>
+        </c:url>
+        <a href="${listExercise}">Read More &rarr;</a>
     </div>
 
     <div class="span4">

@@ -7,4 +7,5 @@ public class ExerciseCommand extends AbstractCommand<ExerciseDTO> {
     public ExerciseCommand() {
         this.pojo = new ExerciseDTO();
     }
+
 }
