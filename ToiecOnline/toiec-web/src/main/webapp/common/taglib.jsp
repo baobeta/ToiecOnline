@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.core.wed.common.WebConstant" %><%--
   Created by IntelliJ IDEA.
   User: Le Bao
   Date: 21/06/2021

@@ -92,7 +92,7 @@ public class AbstractDao<ID extends Serializable,T> implements GenericDao<ID,T> 
     }
 
     @Override
-    public void save(T entity) throws ConstraintViolationException{
+    public T save(T entity) throws ConstraintViolationException{
         Session session =HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         try {
@@ -107,6 +107,7 @@ public class AbstractDao<ID extends Serializable,T> implements GenericDao<ID,T> 
         finally {
             session.close();
         }
+        return entity;
 
     }
 

@@ -11,7 +11,7 @@ public interface GenericDao<ID extends Serializable ,T> {
 
     T update(T entity);
 
-    void save(T entity);
+    T save(T entity);
 
     T findById (ID var1);
 

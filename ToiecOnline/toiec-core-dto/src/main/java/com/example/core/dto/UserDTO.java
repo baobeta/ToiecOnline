@@ -13,7 +13,7 @@ public class UserDTO implements Serializable {
     private  String fullName;
     private Timestamp createdDate;
     private  RoleDTO roleDTO;
-
+    private  List<ResultDTO> results;
     public UserImportDTO getUserImportDTO() {
         return userImportDTO;
     }

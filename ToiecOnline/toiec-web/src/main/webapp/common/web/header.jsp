@@ -4,11 +4,6 @@
 <div id="header-row">
     <div class="container">
         <div class="row">
-            <!--LOGO-->
-            <div class="span3"><a class="brand" href="#"><img src="img/logo.png"/></a></div>
-            <!-- /LOGO -->
-
-            <!-- MAIN NAVIGATION -->
             <div class="span9">
                 <div class="navbar  pull-right">
                     <div class="navbar-inner">
