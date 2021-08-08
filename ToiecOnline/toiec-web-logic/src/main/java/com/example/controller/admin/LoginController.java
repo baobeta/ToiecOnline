@@ -34,6 +34,7 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         try {
+            //Check action login or logout
             String action = request.getParameter("action");
             if(action.equals(WebConstant.LOGIN)) {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/web/login.jsp");
@@ -55,9 +56,15 @@ public class LoginController extends HttpServlet {
        UserCommand command = FormUtil.populate(UserCommand.class,request);
        UserDTO pojo = command.getPojo();
        if(pojo!= null) {
-           CheckLogin checkLogin = SingletonServiceUtil.getUserServiceInstance().checkLogin(pojo.getName(), pojo.getPassword());
+           // check login
+           CheckLogin checkLogin = SingletonServiceUtil
+                                    .getUserServiceInstance()
+                                    .checkLogin(pojo.getName(), pojo.getPassword());
+           // if login exists
            if(checkLogin.isUserExist()) {
+               // Put name
                SessionUtil.getInstance().putValue(request,WebConstant.LOGIN_NAME,pojo.getName());
+               // Decentralization
                if(checkLogin.getRoleName().equals(WebConstant.ROLE_ADMIN)) {
                    response.sendRedirect("/admin-home.html");
                }
@@ -65,6 +72,7 @@ public class LoginController extends HttpServlet {
                    response.sendRedirect("/home.html");
                }
            }
+           // Login wrong
            else {
                request.setAttribute(WebConstant.ALERT,WebConstant.TYPE_ERROR);
                request.setAttribute(WebConstant.MESSAGE_RESPONSE,resourceBundle.getString("label.name.password.wong "));

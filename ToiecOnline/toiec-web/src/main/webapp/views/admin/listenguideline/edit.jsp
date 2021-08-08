@@ -107,11 +107,13 @@
                 filebrowserFlashUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
             });
        validateData();
+       //if upload image change
        $('#uploadImage').change(function (){
           readURL(this,"viewImage");
        });
 
     });
+    //validate
     function validateData() {
         $('#formEdit').validate({
             ignore: [],
@@ -142,6 +144,7 @@
             }
         });
     }
+    //load image
     function readURL(input, imageId) {
         if(input.files &&input.files[0]) {
             var reader = new FileReader();

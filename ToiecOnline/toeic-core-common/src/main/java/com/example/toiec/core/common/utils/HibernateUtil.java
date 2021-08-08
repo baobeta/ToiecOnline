@@ -5,6 +5,7 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
+    // Initial session factory hibernate
     private static  SessionFactory buildSessionFactory() {
         try {
             //create a session factory from hibernate configuration

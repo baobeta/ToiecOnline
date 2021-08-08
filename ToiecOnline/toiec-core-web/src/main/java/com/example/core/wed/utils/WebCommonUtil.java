@@ -6,6 +6,8 @@ import org.apache.commons.lang.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+
+//Set message in request
 public class WebCommonUtil {
     public static  void addRedirectMessage(HttpServletRequest request, String crudaction, Map<String, String > mapMessage) {
         if(StringUtils.isNotBlank(crudaction) && crudaction.equals(WebConstant.REDIRECT_INSERT)) {

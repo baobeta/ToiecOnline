@@ -24,12 +24,15 @@ public class UploadUtil {
     private final int maxRequestSize = 1024 * 1024 * 50; //50 MB
 
     public Object[] writeOrUpdateFile(HttpServletRequest request, Set<String> titleValue, String path) {
-        String address = "/"+ CoreConstant.FOLDER_UPLOAD;
-        checkAndCreateFolder(address, path);
         boolean check = true;
         String fileLocation = null;
         String name = null;
         Map<String, String> mapReturnValue = new HashMap<String, String>();
+        String address = "/"+ CoreConstant.FOLDER_UPLOAD;
+
+        // check folder exists
+        checkAndCreateFolder(address, path);
+
         // Check that we have a file upload request
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         if(!isMultipart) {
@@ -46,14 +49,17 @@ public class UploadUtil {
         // Set overall request size constraint
         upload.setSizeMax(maxRequestSize);
         try {
+            //Load file request
             List<FileItem> items = upload.parseRequest(request);
             for(FileItem item: items) {
                 if (!item.isFormField()) {
                     name = item.getName();
+                    // Check name is blank
                     if (StringUtils.isNotBlank(name)) {
                         File uploadedFile = new File(address + File.separator + path + File.separator+ name);
                         fileLocation = address + File.separator + path + File.separator+ name;
                         boolean isExist = uploadedFile.exists();
+                        //check files is exists
                         try {
                             if (isExist) {
                                 uploadedFile.delete();
@@ -67,6 +73,7 @@ public class UploadUtil {
                         }
                     }
                 } else {
+                    //get value in request
                     if (titleValue != null) {
                         String nameField = item.getFieldName();
                         String valueField = null;
@@ -91,7 +98,7 @@ public class UploadUtil {
         }
         return new Object[]{check, fileLocation, fileName, mapReturnValue};
     }
-
+    // check folder exists
     private void checkAndCreateFolder(String address, String path) {
         File folderRoot = new File(address);
         if (!folderRoot.exists()) {

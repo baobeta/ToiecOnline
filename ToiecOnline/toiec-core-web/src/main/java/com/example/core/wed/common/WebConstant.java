@@ -1,6 +1,6 @@
 package com.example.core.wed.common;
 
-public class WebConstant {
+public class  WebConstant {
     public static final String MESSAGE_RESPONSE ="messageResponse";
     public static final String FROM_ITEM ="item";
     public static final String LIST_ITEM ="items";

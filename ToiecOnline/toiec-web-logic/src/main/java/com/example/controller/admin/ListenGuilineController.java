@@ -28,33 +28,50 @@ public class ListenGuilineController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ListenGuilineCommand command =FormUtil.populate(ListenGuilineCommand.class,req);
         ResourceBundle resourceBundle = ResourceBundle.getBundle("ApplicationResources");
+        // check type list
         if(command.getUrlType()!=null && command.getUrlType().equals(WebConstant.URL_LIST)) {
-            if(command.getCrudaction()!=null&&command.getCrudaction().equals(WebConstant.REDIRECT_DELETE)) {
+            //check action if is action delete
+            if(command.getCrudaction()!=null
+                    &&command.getCrudaction().equals(WebConstant.REDIRECT_DELETE)) {
                 List<Integer> ids =new ArrayList<Integer>();
+                //get list ids
                 for(String item: command.getCheckList()) {
                     ids.add(Integer.parseInt(item));
                 }
-
-                Integer result =SingletonServiceUtil.getListenGuideLineServiceInstance().delete(ids);
+                // delete
+                Integer result =SingletonServiceUtil
+                        .getListenGuideLineServiceInstance()
+                        .delete(ids);
+                //check count
                 if(result != ids.size()) {
                     command.setCrudaction(WebConstant.REDIRECT_ERROR);
                 }
 
             }
+            // searching
             executeSearchListenGuide(req,command);
+            // build Message
             if(command.getCrudaction()!=null) {
                 Map<String, String> mapMessage = buildMapRedirectMessage(resourceBundle);
                 WebCommonUtil.addRedirectMessage(req, command.getCrudaction(), mapMessage);
             }
             req.setAttribute(WebConstant.LIST_ITEM,command);
+            // view page list
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/views/admin/listenguideline/list.jsp");
             requestDispatcher.forward(req,resp);
         }
-        else if(command.getUrlType()!=null && command.getUrlType().equals(WebConstant.URL_EDIT)) {
-            if(command.getPojo()!=null && command.getPojo().getListenGuidelineId()!=null) {
-                command.setPojo(SingletonServiceUtil.getListenGuideLineServiceInstance().findByListenGuideLineId("listenGuidelineId",command.getPojo().getListenGuidelineId()));
+        // type edit
+        else if(command.getUrlType()!=null
+                && command.getUrlType().equals(WebConstant.URL_EDIT)) {
+            if(command.getPojo()!=null
+                    && command.getPojo().getListenGuidelineId()!=null) {
+                // find pojo by ID
+                command.setPojo(SingletonServiceUtil
+                        .getListenGuideLineServiceInstance()
+                        .findByListenGuideLineId("listenGuidelineId",command.getPojo().getListenGuidelineId()));
             }
             req.setAttribute(WebConstant.FROM_ITEM,command);
+            //view page edit
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/views/admin/listenguideline/edit.jsp");
             requestDispatcher.forward(req,resp);
         }
@@ -64,19 +81,25 @@ public class ListenGuilineController extends HttpServlet {
         ListenGuilineCommand command = new ListenGuilineCommand();
         ResourceBundle resourceBundle = ResourceBundle.getBundle("ApplicationResources");
         UploadUtil uploadUtil = new UploadUtil();
+        //set value need get
         Set<String> valueTitle = buildSetValueListenGuideLine();
+        // Save file
         Object[] objects = uploadUtil.writeOrUpdateFile(req,valueTitle,WebConstant.LISTENGUIDELINE);
+        // Check file is write
         boolean checkStatusUploadImage = (boolean) objects[0];
         if(!checkStatusUploadImage) {
             resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_error");
         } else {
             ListenGuideLineDTO dto = command.getPojo();
+            //Set file name image in pojo
             if(StringUtils.isNotBlank(objects[2].toString())) {
                 dto.setImage(objects[2].toString());
             }
+            // Get value in form
             Map<String, String> mapValue = (Map<String, String>) objects[3];
             dto = returnValueOfDTO(dto,mapValue);
             if(dto!=null) {
+                // update
                 if(dto.getListenGuidelineId()!=null) {
                     ListenGuideLineDTO listenGuideLineDTO = SingletonServiceUtil
                                                             .getListenGuideLineServiceInstance()
@@ -85,16 +108,19 @@ public class ListenGuilineController extends HttpServlet {
                         dto.setImage(listenGuideLineDTO.getImage());
                     }
                     dto.setCreatedDate(listenGuideLineDTO.getCreatedDate());
-                    ListenGuideLineDTO result = SingletonServiceUtil.getListenGuideLineServiceInstance().updateListenGuideLine(dto);
+                    ListenGuideLineDTO result = SingletonServiceUtil
+                                                .getListenGuideLineServiceInstance()
+                                                .updateListenGuideLine(dto);
                     if(result!=null) {
                         resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_update");
                     } else {
                         resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_error");
                     }
-
+                    // insert
                 } else {
                     try {
-                        SingletonServiceUtil.getListenGuideLineServiceInstance().saveListenGuideLine(dto);
+                        SingletonServiceUtil.getListenGuideLineServiceInstance()
+                                            .saveListenGuideLine(dto);
                         resp.sendRedirect("/admin-guideline-listen-list.html?urlType=url_list&&crudaction=redirect_insert");
                     } catch (Exception e) {
                         log.error(e.getMessage(), e);
